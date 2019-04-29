@@ -13,38 +13,6 @@
     <!-- Bootswatch Theme CSS -->
     <!-- <link rel="stylesheet" href="../_assets/css/custom.min.css"> -->
 </head>
-<!-- ************************************ -->
-<!-- ============ NAVIGATION ============ -->
-<!-- ************************************ -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">TYS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Study</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Friends</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
@@ -61,58 +29,113 @@
         <!-- *********************************** -->
 
         <div class="row mb-5">
-            <div class="col">
-                <button type="button" class="btn btn-primary btn-lg">Add Quiz</button>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Notifications</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Requests Sent <span class="badge badge-primary badge-pill">14</span></h6> 
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cras justo odio
+                                <button type="button" class="btn btn-primary btn-sm">Cancel</button>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Dapibus ac facilisis in
+                                <span class="badge badge-primary badge-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Morbi leo risus
+                                <span class="badge badge-primary badge-pill">1</span>
+                            </li>
+                        </ul>
+
+                        <h6 class="card-subtitle mb-2 text-muted mt-3">Requests Received</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cras justo odio
+                                
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Dapibus ac facilisis in
+                                <span class="badge badge-primary badge-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Morbi leo risus
+                                <span class="badge badge-primary badge-pill">1</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Friends</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Search</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-3">
-
-                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Quiz One</div>
+            <div class="col-4">
+                <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Biology</h4>
-                        <p class="card-text">Study Quiz for the test on Osmosis this Friday in Madam Pomfrey's class.</p>
-                        <button type="button" class="btn btn-secondary btn-sm">Edit</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card border-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Quiz Two</div>
-                    <div class="card-body">
-                        <h4 class="card-title">Algebra</h4>
-                        <p class="card-text">Finals next Saturday on Algebra fundamentals. Still need a study group!</p>
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card border-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Quiz Three</div>
-                    <div class="card-body">
-                        <h4 class="card-title">Music Lessons</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-                            officiis quasi natus aliquam velit dicta, distinctio culpa asperiores, sit quis, accusamus
-                            recusandae.</p>
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card border-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Quiz Four</div>
-                    <div class="card-body">
-                        <h4 class="card-title">Primary card title</h4>
+                        <h4 class="card-title">Guides</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Groups</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <!-- Jquery -->
     <script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
@@ -126,35 +149,3 @@
         crossorigin="anonymous"></script>
 
 </body>
-
-
-<!-- ******************************** -->
-<!-- ============ FOOTER ============ -->
-<!-- ******************************** -->
-
-<div id="footer">
-    <div class="container mt-5">
-        <div class="mt-3">
-            <div class="row">
-                <div class="col-10 mt-3 mb-3">
-                    <a href="">Lorem</a> | <a href="">Ipsum</a> | <a href="">Dolor</a> | <a href="">Sancti</a>
-                </div>
-                <div class="col-2 mt-3 mb-3">
-                    Back to <a href="">Top</a>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-12 mt-3 mb-3">
-                        Made by <a href="">CHOCO TACO</a> aka <a href="">SHE-HULK</a>.
-                        <br>
-                        Code still under construction. Insert WIP sticker here.
-                        <br>
-                        Based on Bootstrap. Theme from Bootswatch. Can't touch this. <b>Boww wow wow woww. Dun dun.</b>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</html>
