@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS tys_db;
+CREATE DATABASE tys_db;
+USE tys_db;
+
+CREATE TABLE test
+(
+	id int NOT NULL AUTO_INCREMENT,
+	name varchar(255) NOT NULL,
+	PRIMARY KEY (id)
+);
