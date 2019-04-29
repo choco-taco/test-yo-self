@@ -14,4 +14,17 @@ router.get("/user", function (req, res) {
     res.render("user");
 });
 
+router.get("/studyGuideForm", function (req, res) {
+    res.render("studyGuideForm");
+});
+
+router.get("/dashboard", function (req, res) {
+    res.render("dashboard");
+});
+
+router.get("/addGroup", function (req, res) {
+    res.render("addGroup");
+});
+
+
 module.exports = router;
