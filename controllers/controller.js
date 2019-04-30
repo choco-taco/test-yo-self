@@ -14,16 +14,16 @@ router.get("/user", function (req, res) {
     res.render("user");
 });
 
-router.get("/studyGuideForm", function (req, res) {
-    res.render("studyGuideForm");
+router.get("/study-guide-form", function (req, res) {
+    res.render("study-guide-form");
 });
 
 router.get("/dashboard", function (req, res) {
     res.render("dashboard");
 });
 
-router.get("/addGroup", function (req, res) {
-    res.render("addGroup");
+router.get("/add-group", function (req, res) {
+    res.render("add-group");
 });
 
 
