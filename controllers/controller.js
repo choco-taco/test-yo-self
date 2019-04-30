@@ -26,5 +26,9 @@ router.get("/addGroup", function (req, res) {
     res.render("addGroup");
 });
 
+router.get("/addSession", function (req, res) {
+    res.render("addSession");
+});
+
 
 module.exports = router;
