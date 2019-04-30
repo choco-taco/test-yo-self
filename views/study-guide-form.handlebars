@@ -1,0 +1,91 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+        <h1 class="display-1">Study Guide Form</h1>
+        <p class="lead">Build your study guide here by adding questions and answers to this page.</p>
+    </div>
+</div>
+
+<div class="container" style="max-width: 50%">
+
+    <!-- *************************************** -->
+    <!-- ============ QUESTION FORM ============ -->
+    <!-- *************************************** -->
+
+
+    <div class="card text-white bg-primary mb-3" style="max-width: 100%;">
+        <div class="card-header">Create Study Guide</div>
+        <div class="card-body">
+            <h4 class="card-title">Study Guide Name</h4>
+            <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="inputLarge">Enter Name Below</label>
+                <input class="form-control form-control-lg" type="text" placeholder="ex: Biology Test" id="inputLarge">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- QUESTION 1 -->
+    <div class="card bg-light mb-3">
+        <div class="card-header">Question 1</div>
+        <div class="card-body">
+            <!-- Question and Answer -->
+            <h4 class="card-title">Question: What color is the sky?</h4>
+            <p class="card-text">Answer: Some quick example text to build on the card title and make up the
+                bulk of
+                the card's content.</p>
+            <!-- Edit and Delete Buttons -->
+            <button type="submit" class="btn btn-primary float-left">Edit</button>
+            <button type="submit" class="btn btn-primary float-right">Delete</button>
+        </div>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="card bg-light mb-3">
+        <div class="card-header">Question 2</div>
+        <div class="card-body">
+            <!-- Question and Answer -->
+            <h4 class="card-title">Question: What color is the moon?</h4>
+            <p class="card-text">Answer: Some quick example text to build on the card title and make up the
+                bulk of
+                the card's content.</p>
+            <!-- Edit and Delete Buttons -->
+            <button type="submit" class="btn btn-primary float-left">Edit</button>
+            <button type="submit" class="btn btn-primary float-right">Delete</button>
+        </div>
+    </div>
+
+    <form>
+        <fieldset>
+            <!-- QUESTION 3 -->
+            <div class="card bg-light mb-3">
+                <!-- Question Header -->
+                <div class="card-header">Question 2</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <!-- Question Text Area -->
+                        <label for="exampleTextarea">Question</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="1"></textarea>
+                    </div>
+                    <!-- Answer Text Area -->
+                    <div class="form-group">
+                        <label for="exampleTextarea">Answer</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="1"></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <!--Add Question Button-->
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn btn-primary btn-lg btn-block">New Question</button>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Submit Test</button>
+        </div>
+    </div>
+</div>
