@@ -1,138 +1,132 @@
-  <!-- ============= Sign In Box ====================== -->
+<!-- ============= Sign In Box ====================== -->
+<div class="container">
     <div class="container">
-        <div class="container">
-            <div id="loginbox" style="margin-top:50px;" class="mainbox">
-                <div class="card border-primary mb-3">
-                    <!-- ======= Sign In Header ======= -->
-                    <div class="card-header bg-primary">
-                        <div class="card-title text-center"><i class="fa fa-sign-in-alt" aria-hidden="true"></i>
-                            Sign
-                            In
-                        </div>
-                        <!-- ========= Forgot Password Link button ======== -->
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#"
-                                class="text-white">Forgot
-                                password?</a></div>
+        <div id="loginbox" style="margin-top:50px;" class="mainbox">
+            <div class="card border-primary mb-3">
+                <!-- ======= Sign In Header ======= -->
+                <div class="card-header bg-primary">
+                    <div class="card-title text-center"><i class="fa fa-sign-in-alt" aria-hidden="true"></i>
+                        Sign
+                        In
                     </div>
-                    <!-- ======= Icons For Username/Password ========== -->
-                    <div style="padding-top:30px" class="card-text p-3">
-                        <!-- ======= Alert Login ========= -->
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                        <!-- ============ Login Form =============== -->
-                        <form id="loginform" class="form-horizontal" role="form">
-                            <!-- ============ Username Icon/Input Box ============= -->
-                            <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
-                                <span class="input-group-prepend p-2"><i class="fas fa-user"></i></span>
-                                <input id="login-username" type="text" class="form-control input-lg" name="username"
-                                    value="" placeholder="username or email">
-                            </div>
-                            <!-- ============ Password Icon/Input Box ============== -->
-                            <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
-                                <span class="input-group-prepend p-2"><i class="fas fa-lock"></i></span>
-                                <input id="login-password" type="password" class="form-control input-lg" name="password"
-                                    placeholder="password">
-                            </div>
-                            <!-- ============= Remember Me Checkbox ================= -->
-                            <div class="input-group col-sm-offset-3 col-sm-7">
-                                <div class="checkbox">
-                                    <label>
-                                        <input id="login-remember" type="checkbox" name="remember" value="1">
-                                        Remember
-                                        me
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- ================= Login Button ====================== -->
-                            <div style="margin-top:10px" class="form-group">
-                                <div class="col-sm-12 controls text-center">
-                                    <a id="btn-login" href="#" class="btn btn-primary btn-sm"> Login <i
-                                            class="fa fa-sign-in-alt" aria-hidden="true"></i> </a>
-                                </div>
-                            </div>
-                            <!-- ====== Sign Up Here link area ======== -->
-                            <div class="form-group">
-                                <div class="col-md-12 control">
-                                    <div style="border-top: 1px solid#888; padding-top:30px; font-size:85%">
-                                        Don't have an account!
-                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
-                                            Sign Up Here
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <!-- ========= Forgot Password Link button ======== -->
+                    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#" class="text-white">Forgot
+                            password?</a></div>
                 </div>
-            </div>
-            <!-- ================= Sign Up Card ========================== -->
-            <div id="signupbox" style="display:none; margin-top:50px" class="mainbox">
-                <div class="card border-primary">
-                    <div class="card-header bg-primary">
-                        <!-- ============== Sign Up Header ==================== -->
-                        <div class="card-title text-center">Sign Up <i class="fas fa-user-plus"></i>
+                <!-- ======= Icons For Username/Password ========== -->
+                <div style="padding-top:30px" class="card-text p-3">
+                    <!-- ======= Alert Login ========= -->
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                    <!-- ============ Login Form =============== -->
+                    <form id="loginform" class="form-horizontal" role="form">
+                        <!-- ============ Username Icon/Input Box ============= -->
+                        <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
+                            <span class="input-group-prepend p-2"><i class="fas fa-user"></i></span>
+                            <input id="login-username" type="text" class="form-control input-lg" name="username" value=""
+                                placeholder="username or email">
                         </div>
-                        <!-- =========== Sign In Button =============== -->
-                        <div style="float:right; font-size: 85%; position: relative; top:-10px"><a class="text-white"
-                                id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign
-                                In</a>
+                        <!-- ============ Password Icon/Input Box ============== -->
+                        <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
+                            <span class="input-group-prepend p-2"><i class="fas fa-lock"></i></span>
+                            <input id="login-password" type="password" class="form-control input-lg" name="password"
+                                placeholder="password">
                         </div>
-                    </div>
-                    <!-- =============== Sign Up Form ==================== -->
-                    <div class="card-text p-3">
-                        <form id="signupform" class="form-horizontal" role="form">
-                            <!-- ============== Sign Up Alert ============= -->
-                            <div id="signupalert" style="display:none" class="alert alert-danger">
-                                <p>Error:</p>
-                                <span></span>
+                        <!-- ============= Remember Me Checkbox ================= -->
+                        <div class="input-group col-sm-offset-3 col-sm-7">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="login-remember" type="checkbox" name="remember" value="1">
+                                    Remember
+                                    me
+                                </label>
                             </div>
-                            <!-- ============ Email Input Box =================== -->
-                            <div class="form-group">
-                                <label for="email" class="col-md-4 col-form-label">Email</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-lg" name="email"
-                                        placeholder="Email Address">
+                        </div>
+                        <!-- ================= Login Button ====================== -->
+                        <div style="margin-top:10px" class="form-group">
+                            <div class="col-sm-12 controls text-center">
+                                <a id="btn-login" href="#" class="btn btn-primary btn-sm"> Login <i class="fa fa-sign-in-alt"
+                                        aria-hidden="true"></i> </a>
+                            </div>
+                        </div>
+                        <!-- ====== Sign Up Here link area ======== -->
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; padding-top:30px; font-size:85%">
+                                    Don't have an account!
+                                    <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                        Sign Up Here
+                                    </a>
                                 </div>
                             </div>
-                            <!-- ============== Username Input Box ================ -->
-                            <div class="form-group">
-                                <label for="username" class="col-md-4 col-form-label">Username</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-lg" name="username"
-                                        placeholder="Username">
-                                </div>
-                            </div>
-                          
-                            <!-- =========== Password Input Box ============= -->
-                            <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-                                <div class="col-md-8">
-                                    <input type="password" class="form-control input-lg" name="passwd"
-                                        placeholder="Password">
-                                </div>
-                            </div>
-                            <!-- ============= Sign Up Button ============== -->
-                            <div class="form-group">
-                                <div class="col-md-offset-4 col-md-8">
-                                    <button id="btn-signup" type="button" class="btn btn-primary btn-sm"> Sign Up <i
-                                            class="fas fa-user-plus"></i></button>
-                                </div>
-                            </div>
-                            <!-- ========== HAve An Account Login Form Link ============ -->
-                            <div class="form-group">
-                                <div class="col-md-12 control">
-                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
-                                        Have an account!
-                                        <a href="#" onClick="$('#signupbox').hide(); $('#loginbox').show()">
-                                            Login Here
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+        <!-- ================= Sign Up Card ========================== -->
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox">
+            <div class="card border-primary">
+                <div class="card-header bg-primary">
+                    <!-- ============== Sign Up Header ==================== -->
+                    <div class="card-title text-center">Sign Up <i class="fas fa-user-plus"></i>
+                    </div>
+                    <!-- =========== Sign In Button =============== -->
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a class="text-white" id="signinlink"
+                            href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign
+                            In</a>
+                    </div>
+                </div>
+                <!-- =============== Sign Up Form ==================== -->
+                <div class="card-text p-3">
+                    <form id="signupform" class="form-horizontal" role="form">
+                        <!-- ============== Sign Up Alert ============= -->
+                        <div id="signupalert" style="display:none" class="alert alert-danger">
+                            <p>Error:</p>
+                            <span></span>
+                        </div>
+                        <!-- ============ Email Input Box =================== -->
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 col-form-label">Email</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control input-lg" name="email" placeholder="Email Address">
+                            </div>
+                        </div>
+                        <!-- ============== Username Input Box ================ -->
+                        <div class="form-group">
+                            <label for="username" class="col-md-4 col-form-label">Username</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control input-lg" name="username" placeholder="Username">
+                            </div>
+                        </div>
 
+                        <!-- =========== Password Input Box ============= -->
+                        <div class="form-group">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control input-lg" name="passwd" placeholder="Password">
+                            </div>
+                        </div>
+                        <!-- ============= Sign Up Button ============== -->
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button id="btn-signup" type="button" class="btn btn-primary btn-sm"> Sign Up <i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </div>
+                        <!-- ========== HAve An Account Login Form Link ============ -->
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                    Have an account!
+                                    <a href="#" onClick="$('#signupbox').hide(); $('#loginbox').show()">
+                                        Login Here
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- ============ End ============ -->
+</div>
+<!-- ============ End ============ -->
