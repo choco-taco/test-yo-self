@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Study group chat app</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css">
+    {{#if socketData}}
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+    </style>
+    {{/if}}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">TYS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    {{!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Create Group</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create Study Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create Session</a>
+                    </li> --}}
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/signin">Sign In <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{{body}}}
+
+    <div id="footer" style="background-color:#f7f7f9">
+        <div class="container mt-5">
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-10 mt-3 mb-3">
+                        <a href="">Lorem</a> | <a href="">Ipsum</a> | <a href="">Dolor</a> | <a href="">Sancti</a>
+                    </div>
+                    <div class="col-2 mt-3 mb-3">
+                        Back to <a href="">Top</a>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3 mb-3">
+                        Made by <a href="">CHOCO TACO</a> aka <a href="">SHE-HULK</a>.
+                        <br>
+                        Code still under construction. Insert WIP sticker here.
+                        <br>
+                        Based on Bootstrap. Theme from Bootswatch. Can't touch this. <b>Boww wow wow woww. Dun dun.</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{#if socketData}}
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io()
+        socket.emit('room', { 
+            room: {{socketData.room}},
+            userId: {{socketData.userId}}
+        });
+
+        const send = document.getElementById('btn-chat')
+        const message = document.getElementById('m')
+        const messages = document.getElementById('messages')
+
+        send.addEventListener('click', function(e) {
+            e.preventDefault()
+            socket.emit('chat', {
+                username: '{{socketData.username}}',
+                message: message.value 
+            })
+            message.value = ''
+        })
+
+        socket.on('chat', function(data) {
+            messages.innerHTML += '<li><strong>' + data.username + ':</strong> ' + data.message + '</li>'
+        })
+    </script>
+    {{/if}}
+    <script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
