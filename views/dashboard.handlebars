@@ -1,64 +1,250 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-1">TEST YO SELF</h1>
-        <p class="lead">Welcome, Cami. Get ready to feel the learn. Start by creating a quiz below.</p>
+        <h1 class="display-1">Welcome, Friend.</h1>
+        <p class="lead">Get ready to feel the learn. Start by creating a quiz below.</p>
     </div>
 </div>
 
-<div class="container" style="max-width: 80%">
+<div class="container" style="max-width: 100%">
 
+    <!-- *********************************** -->
+    <!-- ============ DASHBOARD ============ -->
+    <!-- *********************************** -->
+
+    <div class="row mb-5">
+        <!-- Notifications -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Notifications</h1>
+                    <!-- Requets Received -->
+                    <h6 class="card-subtitle mb-2 text-muted mt-3">Requests Received</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>mrjoe</b>
+                            <button type="button" class="btn btn-primary btn-sm">Accept</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>sirBRYAN</b>
+                            <button type="button" class="btn btn-primary btn-sm">Accept</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>M4ST3RC4M1</b>
+                            <button type="button" class="btn btn-primary btn-sm">Accept</button>
+                        </li>
+                    </ul>
+                    <!-- Requests Sent -->
+                    <h6 class="card-subtitle mb-2 text-muted mt-3">Requests Sent</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>mrjoe</b>
+                            <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>sirBRYAN</b>
+                            <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>M4ST3RC4M1</b>
+                            <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Friends</h1>
+                    <h6 class="card-subtitle mb-2 text-muted">Forever Alone</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>mrjoe</b>
+                            <button type="button" class="btn btn-primary btn-sm">Unfriend</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>sirBRYAN</b>
+                            <button type="button" class="btn btn-primary btn-sm">Unfriend</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>M4ST3RC4M1</b>
+                            <button type="button" class="btn btn-primary btn-sm">Unfriend</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>KingJ000E</b>
+                            <button type="button" class="btn btn-primary btn-sm">Unfriend</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>LordBrYaN</b>
+                            <button type="button" class="btn btn-primary btn-sm">Unfriend</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>Princess_Cami</b>
+                            <button type="button" class="btn btn-primary btn-sm">Unfriend</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Search</h1>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-lg" for="inputLarge">Find Friend</label>
+                        <input class="form-control form-control-lg" type="text" placeholder="Enter Username or Email"
+                            id="inputLarge">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row mb-5">
         <div class="col">
-            <button type="button" class="btn btn-primary btn-lg">Add Quiz</button>
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Sessions</h1>
+                    <h6 class="card-subtitle mb-2 text-muted">All of your current sessions:</h6>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card mb-3">
+                                <h5 class="card-header">Biology Test</h5>
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and
+                                        make up the bulk of the card's content. Probably would put description of
+                                        the test here.</p>
+                                    <button type="button" class="btn btn-secondary">Start</button>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Study Guide: <span class="badge badge-primary">Biology
+                                            Test</span>
+                                    </li>
+                                    <li class="list-group-item">Group: <span class="badge badge-primary">Choco Taco</span>
+                                    </li>
+                                    <li class="list-group-item">Status: <span class="badge badge-secondary">Complete</span>
+                                    </li>
+                                </ul>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Edit</a>
+                                    <a href="#" class="card-link float-right">Delete</a>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    2 days ago
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="card mb-3">
+                                <h5 class="card-header">Math Test</h5>
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and
+                                        make up the bulk of the card's content. Probably would put description of
+                                        the test here.</p>
+                                    <button type="button" class="btn btn-secondary">Start</button>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Study Guide: <span class="badge badge-primary">Biology
+                                            Test</span>
+                                    </li>
+                                    <li class="list-group-item">Group: <span class="badge badge-primary">Choco Taco</span>
+                                    </li>
+                                    <li class="list-group-item">Status: <span class="badge badge-secondary">Complete</span>
+                                    </li>
+                                </ul>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Edit</a>
+                                    <a href="#" class="card-link float-right">Delete</a>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    2 days ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card mb-3">
+                                <h5 class="card-header">English Test</h5>
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and
+                                        make up the bulk of the card's content. Probably would put description of
+                                        the test here.</p>
+                                    <button type="button" class="btn btn-secondary">Start</button>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Study Guide: <span class="badge badge-primary">Biology
+                                            Test</span>
+                                    </li>
+                                    <li class="list-group-item">Group: <span class="badge badge-primary">Choco Taco</span>
+                                    </li>
+                                    <li class="list-group-item">Status: <span class="badge badge-secondary">Complete</span>
+                                    </li>
+                                </ul>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Edit</a>
+                                    <a href="#" class="card-link float-right">Delete</a>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    2 days ago
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-3">
-
-            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header">Quiz One</div>
+        <div class="col-6">
+            <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Biology</h4>
-                    <p class="card-text">Study Quiz for the test on Osmosis this Friday in Madam Pomfrey's class.</p>
-                    <button type="button" class="btn btn-secondary btn-sm">Edit</button>
+                    <h1 class="card-title">Guides</h1>
+                    <h6 class="card-subtitle mb-2 text-muted">Your Study Guides</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>Math Algebra</b>
+                            <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>English Test</b>
+                            <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>Biology Quiz</b>
+                            <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>History Review</b>
+                            <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="col-3">
-            <div class="card border-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header">Quiz Two</div>
+        <div class="col-6">
+            <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Algebra</h4>
-                    <p class="card-text">Finals next Saturday on Algebra fundamentals. Still need a study group!</p>
-                    <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3">
-            <div class="card border-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header">Quiz Three</div>
-                <div class="card-body">
-                    <h4 class="card-title">Music Lessons</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-                        officiis quasi natus aliquam velit dicta, distinctio culpa asperiores, sit quis, accusamus
-                        recusandae.</p>
-                    <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card border-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header">Quiz Four</div>
-                <div class="card-body">
-                    <h4 class="card-title">Primary card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
+                    <h1 class="card-title">Groups</h1>
+                    <h6 class="card-subtitle mb-2 text-muted">Your Study Groups</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>Choco Taco</b>
+                            <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>She-Hulk</b>
+                            <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
