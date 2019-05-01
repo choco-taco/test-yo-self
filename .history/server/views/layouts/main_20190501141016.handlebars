@@ -13,7 +13,7 @@
     {{#if socketData}}
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font: 19px Helvetica, Arial; }
+        body { font: 13px Helvetica, Arial; }
         form { background: #fff; padding: 3px; }
         form input { border: 0; padding: 10px; width: 100%; margin-right: .5%; }
         form button { width: 15%; background: rgb(130, 224, 255); border: none; padding: 10px; }
@@ -142,12 +142,11 @@
 
         $(document.body).on('click', '#next-problem', function() {
             socket.emit('next')
-            
         })
 
         $(document.body).on('click', '#show-answer', function() {
             socket.emit('show')
-
+            $('#problem-card').addClass('bg-secondary')
         })
 
         $(document.body).on('click', '#previous-problem', function() {

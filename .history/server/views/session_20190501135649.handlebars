@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-md-10 mx-auto">
+            <h1>Hello, {{username}}</h1>
+            <h4>Session Leader: {{leader}}</h4>
+            <div class="row">
+                <div class="col col-md-7 mx-auto" id="card-container">
+
+                    <p><b>Group:</b> {{groupName}}</p>
+                    <p><b>Guide:</b> {{guideName}}</p>
+                    <p><b>Session:</b> {{sessionName}}</p>
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                        <div class="card-header">Problem <span id="problem-number"></span></div>
+                        <div class="card-body">
+                            <h4 class="card-title" id="problem-title"></h4>
+                            <p class="card-text" id="problem-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-5 mx-auto">
+            <ul id="messages" style="height: 100px; overflow-y: auto;"></ul>
+            <form action="">
+                <input class="form-control mb-1" id="m" autocomplete="off" /><button class="btn btn-primary" id="btn-chat">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

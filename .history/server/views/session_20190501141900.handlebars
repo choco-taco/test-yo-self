@@ -5,18 +5,19 @@
             <h4>Session Leader: {{leader}}</h4>
 
             <div class="row">
+
                 <div class="col" id="card-container">
                     <ul class="list-group mb-3" style="width:50%">
                         <li class="list-group-item d-flex">
-                            <i class="fas fa-users mr-3"></i>
+                            <b>Group:</b> 
                             <span class="badge badge-primary badge-pill">{{groupName}}</span>
                         </li>
                         <li class="list-group-item d-flex">
-                            <i class="far fa-file-alt mr-3"></i>
-                            <span class="badge badge-secondary badge-pill">{{guideName}}</span>
+                            Guide:</b> 
+                            <span class="badge badge-primary badge-pill">{{guideName}}</span>
                         </li>
                         <li class="list-group-item d-flex">
-                            <i class="fas fa-graduation-cap mr-3"></i>
+                            Session:</b> 
                             <span class="badge badge-primary badge-pill">{{sessionName}}</span>
                         </li>
                     </ul>
@@ -39,7 +40,7 @@
                 </div>
             </div>
             <form action="">
-                <input class="form-control mb-2 mt-2" id="m" autocomplete="off" /><button class="btn btn-secondary" id="btn-chat">Send</button>
+                <input class="form-control mb-2 mt-2" id="m" autocomplete="off" /><button class="btn btn-primary" id="btn-chat">Send</button>
             </form>
         </div>
     </div>

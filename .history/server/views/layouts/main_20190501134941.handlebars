@@ -12,12 +12,12 @@
 
     {{#if socketData}}
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font: 19px Helvetica, Arial; }
-        form { background: #fff; padding: 3px; }
-        form input { border: 0; padding: 10px; width: 100%; margin-right: .5%; }
+        * { margin: 0; padding: 0; box-sizing: border-box; height:100px;}
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; }
+        form input { border: 0; padding: 10px; width: 84%; margin-right: .5%; }
         form button { width: 15%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-        #messages { list-style-type: none; margin: 0; padding: 0;}
+        #messages { list-style-type: none; margin: 0; padding: 0; }
         #messages li { padding: 5px 10px; }
     </style>
     {{/if}}
@@ -142,12 +142,10 @@
 
         $(document.body).on('click', '#next-problem', function() {
             socket.emit('next')
-            
         })
 
         $(document.body).on('click', '#show-answer', function() {
             socket.emit('show')
-
         })
 
         $(document.body).on('click', '#previous-problem', function() {
@@ -162,7 +160,6 @@
             $('#problem-number').text(data.index)
             $('#problem-title').text(data.currentTitle)
             $('#problem-text').text(data.currentText)
-            
         })
 
         socket.on('buttonDisplay', function(data) {
