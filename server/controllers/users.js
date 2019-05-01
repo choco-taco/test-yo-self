@@ -62,7 +62,7 @@ module.exports = {
          })
 
         if (!foundToken) {
-            return res.status(404).json({ 404: 'Page not found' })
+            return res.render('404')
         }
 
         const foundUser = await User.findOne({ 
@@ -72,7 +72,7 @@ module.exports = {
          })
 
         if (!foundUser) {
-            return res.status(404).json({ 404: 'Page not found' })
+            return res.render('404')
         }
 
         foundUser.active = true
