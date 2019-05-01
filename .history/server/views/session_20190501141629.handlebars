@@ -3,23 +3,27 @@
         <div class="col">
             <h1 class="display-3 mt-3">Hello, {{username}}</h1>
             <h4>Session Leader: {{leader}}</h4>
-
+            <ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Cras justo odio
+    <span class="badge badge-primary badge-pill">14</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Dapibus ac facilisis in
+    <span class="badge badge-primary badge-pill">2</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Morbi leo risus
+    <span class="badge badge-primary badge-pill">1</span>
+  </li>
+</ul>
             <div class="row">
+                
                 <div class="col" id="card-container">
-                    <ul class="list-group mb-3" style="width:50%">
-                        <li class="list-group-item d-flex">
-                            <i class="fas fa-users mr-3"></i>
-                            <span class="badge badge-primary badge-pill">{{groupName}}</span>
-                        </li>
-                        <li class="list-group-item d-flex">
-                            <i class="far fa-file-alt mr-3"></i>
-                            <span class="badge badge-secondary badge-pill">{{guideName}}</span>
-                        </li>
-                        <li class="list-group-item d-flex">
-                            <i class="fas fa-graduation-cap mr-3"></i>
-                            <span class="badge badge-primary badge-pill">{{sessionName}}</span>
-                        </li>
-                    </ul>
+
+                    <p><b>Group:</b> {{groupName}}</p>
+                    <p><b>Guide:</b> {{guideName}}</p>
+                    <p><b>Session:</b> {{sessionName}}</p>
                     <div class="card text-white bg-primary mb-3" id="problem-card">
                         <div class="card-header">Question <span id="problem-number"></span></div>
                         <div class="card-body">
@@ -39,7 +43,7 @@
                 </div>
             </div>
             <form action="">
-                <input class="form-control mb-2 mt-2" id="m" autocomplete="off" /><button class="btn btn-secondary" id="btn-chat">Send</button>
+                <input class="form-control mb-2 mt-2" id="m" autocomplete="off" /><button class="btn btn-primary" id="btn-chat">Send</button>
             </form>
         </div>
     </div>

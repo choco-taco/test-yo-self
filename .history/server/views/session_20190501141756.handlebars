@@ -5,19 +5,20 @@
             <h4>Session Leader: {{leader}}</h4>
 
             <div class="row">
+
                 <div class="col" id="card-container">
-                    <ul class="list-group mb-3" style="width:50%">
-                        <li class="list-group-item d-flex">
-                            <i class="fas fa-users mr-3"></i>
-                            <span class="badge badge-primary badge-pill">{{groupName}}</span>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>Group:</b> {{groupName}}
+                            <span class="badge badge-primary badge-pill">14</span>
                         </li>
-                        <li class="list-group-item d-flex">
-                            <i class="far fa-file-alt mr-3"></i>
-                            <span class="badge badge-secondary badge-pill">{{guideName}}</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Guide:</b> {{guideName}}
+                            <span class="badge badge-primary badge-pill">2</span>
                         </li>
-                        <li class="list-group-item d-flex">
-                            <i class="fas fa-graduation-cap mr-3"></i>
-                            <span class="badge badge-primary badge-pill">{{sessionName}}</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Session:</b> {{sessionName}}
+                            <span class="badge badge-primary badge-pill">1</span>
                         </li>
                     </ul>
                     <div class="card text-white bg-primary mb-3" id="problem-card">
@@ -39,7 +40,7 @@
                 </div>
             </div>
             <form action="">
-                <input class="form-control mb-2 mt-2" id="m" autocomplete="off" /><button class="btn btn-secondary" id="btn-chat">Send</button>
+                <input class="form-control mb-2 mt-2" id="m" autocomplete="off" /><button class="btn btn-primary" id="btn-chat">Send</button>
             </form>
         </div>
     </div>

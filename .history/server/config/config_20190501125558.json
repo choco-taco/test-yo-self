@@ -3,24 +3,24 @@
     "username": "root",
     "password": "root",
     "database": "study_app_db",
-    "host": "localhost",
-    "port": 8889,
+    "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
-    "host": "localhost",
-    "port": 8889,
+    "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
-    "host": "localhost",
-    "port": 8889,
+    "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   }
 }
