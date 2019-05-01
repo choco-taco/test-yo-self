@@ -681,7 +681,6 @@ module.exports = {
         }
         // Still need to check if friend being deleted is in
         // Any groups this user created
-        
         await req.user.removeFriend(friend)
         await friend[0].removeFriend(req.user)
 
