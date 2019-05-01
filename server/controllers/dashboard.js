@@ -447,20 +447,9 @@ module.exports = {
             return res.status(404).json({ 404: 'Guide not found' })
         }
 
-        const foundProblems = await Problem.findAll({
-            where: {
-                guideId: foundSession.guideId
-            }
-        })
-
-        if (foundProblems === undefined || foundProblems.length === 0) {
-            return res.status(404).json({ 404: 'Problems not found' })
-        }
-
         socketData = {
-            userId: req.user.id,
-            username: req.user.username,
-            room: foundSession.id,
+            sessionId: foundSession.id,
+            guideId: foundGuide.id,        
         }
 
         if (req.user.id === foundSession.userId) {
@@ -468,15 +457,13 @@ module.exports = {
             foundSession.active = true
             await foundSession.save()
 
-            socketData.leader = req.user.username
+            socketData.isLeader = true
 
             return res.render('session', {
-                leader: req.user.username,
                 username: req.user.username,
-                session: foundSession,
-                group: foundGroup,
-                guide: foundGuide,
-                problems: foundProblems,
+                groupName: foundGroup.name,
+                guideName: foundGuide.name,
+                sessionName: foundSession.name,
                 socketData
             })
         }
@@ -491,15 +478,14 @@ module.exports = {
             return res.status(404).json({ 404: 'Leader not found' })
         }
 
-        socketData.leader = foundLeader.username
+        socketData.isLeader = false
 
         res.render('session', {
-            leader: foundLeader.username,
             username: req.user.username,
-            session: foundSession,
-            group: foundGroup,
-            guide: foundGuide,
-            problems: foundProblems,
+            leader: foundLeader.username,
+            groupName: foundGroup.name,
+            guideName: foundGuide.name,
+            sessionName: foundSession.name,
             socketData
         })
     },
@@ -631,7 +617,7 @@ module.exports = {
     },
     postDenyFriendRequest: async (req, res) => {
 
-        const id = req.params
+        const id = req.params.userId
 
         if (id == req.user.id) {
             return res.status(403).json({ 403: `Cannot deny friend request yourself!` })
@@ -682,6 +668,9 @@ module.exports = {
         if (friend.length === 0) {
             return res.status(404).json({ 404: `Friend not found` })
         }
+
+        // Still need to check if friend being deleted is in
+        // Any groups this user created
 
         await req.user.removeFriend(friend)
         await friend[0].removeFriend(req.user)
