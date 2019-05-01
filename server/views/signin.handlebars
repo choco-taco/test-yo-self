@@ -1,6 +1,10 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container text-center">
+<<<<<<< HEAD
         <h1 class="display-1">LOGIN <i class="fas fa-sign-in-alt"></i></h1>
+=======
+        <h1 class="display-1">LOGIN </h1>
+>>>>>>> origin
         <p class="lead">Please Enter Your Username And Password Below </p>
     </div>
 </div>
@@ -15,11 +19,19 @@
                 {{#if success}}
                 {{success}}
                 {{/if}}
+<<<<<<< HEAD
                 <div class="form-group"><i class="fas fa-user"></i>
                     <label for="usernameOrEmail">Username or email</label>
                     <input type="text" class="form-control" id="usernameOrEmail" name="usernameOrEmail" placeholder="Enter username or email">
                 </div>
                 <div class="form-group"><i class="fas fa-lock"></i>
+=======
+                <div class="form-group">
+                    <label for="usernameOrEmail">Username or email</label>
+                    <input type="text" class="form-control" id="usernameOrEmail" name="usernameOrEmail" placeholder="Enter username or email">
+                </div>
+                <div class="form-group">
+>>>>>>> origin
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
@@ -29,8 +41,79 @@
                         <a href="/users/signup">Sign Up Here</a>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary">Sign In <i class="fas fa-sign-in-alt"></i></button>
+=======
+                <button type="submit" class="btn btn-primary">Sign In</button>
+>>>>>>> origin
             </form>
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+
+
+    {{!-- <!-- ============= Sign In Box ====================== -->
+    <div class="container">
+        <div class="container" style="max-width: 80%">
+            <div id="loginbox" style="margin-top:50px;" class="mainbox">
+                <div class="card border-primary mb-3">
+                    <!-- ======= Sign In Header ======= -->
+                    <div class="card-header bg-primary">
+                        <div class="card-title text-center text-white"><i class="fa fa-sign-in-alt"
+                                aria-hidden="true"></i>
+                            Sign
+                            In
+                        </div>
+                        
+                    </div>
+                
+                <!-- ======= Icons For Username/Password ========== -->
+                <div style="padding-top:30px" class="card-text p-3">
+                    <!-- ======= Alert Login ========= -->
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                    <!-- ============ Login Form =============== -->
+                    <form action="/users/signin" method="POST" id="loginform" class="form-horizontal" role="form">
+                        <!-- ============ Username Icon/Input Box ============= -->
+                        <div style="margin-bottom: 25px; margin-left: 20%;" class="input-group col-sm-offset-3 col-sm-7">
+                            <span class="input-group-prepend p-2"><i class="fas fa-user"></i></span>
+                            <input id="login-username" type="text" class="form-control input-lg" name="usernameOrEmail"
+                                placeholder="username or email">
+                        </div>
+                        <!-- ============ Password Icon/Input Box ============== -->
+                        <div style="margin-bottom: 25px; 
+                        margin-left: 20%" class="input-group col-sm-offset-3 col-sm-7">
+                            <span class="input-group-prepend p-2"><i class="fas fa-lock"></i></span>
+                            <input id="login-password" type="password" class="form-control input-lg" name="password" placeholder="password">
+                        </div>
+                        <!-- ================= Login Button ====================== -->
+                        <div style="margin-top:10px" class="form-group">
+                            <div class="col-sm-12 controls text-center">
+                                <button type="submit" class="btn btn-primary">Sign In</button>
+                            </div>
+                            <br>
+
+                            <!-- ========= Forgot Password Link button ======== -->
+                        <div style="float:right; font-size: 80%; position: relative; top:25px"><a href="/users/forgotpassword"
+                        >Forgot password?</a></div>
+                            <!-- ====== Sign Up Here link area ======== -->
+                            <div class="form-group">
+                                <div class="col-md-12 control">
+                                    <div style="border-top: 1px solid#888; padding-top:30px; font-size:85%">
+                                        Don't have an account!
+                                        <a href="/users/signup" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            Sign Up Here
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+<!-- ============ End ============ -->
+>>>>>>> origin

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 <div class="container" style="max-width: 80%">
+=======
+<div class="container" style="max-width: 100%">
+>>>>>>> origin
 
     <!-- *********************************** -->
     <!-- ============ DASHBOARD ============ -->
     <!-- *********************************** -->
+<<<<<<< HEAD
     <h1 class="display-1 text-center mb-5 mt-5">Welcome, {{username}}.</h1>
     
     <div class="row mb-5">
@@ -31,6 +36,35 @@
                             <b><i class="far fa-paper-plane mr-3"></i>{{this.username}}</b>
                             <a href="/dashboard/cancel/{{this.id}}" id="cancel"><button type="button" class="btn btn-outline-secondary btn-sm">Cancel</button></a>
                         </li>
+=======
+    <h1 class="my-4 text-center">Welcome, {{username}}</h1>
+
+    <div class="row mb-5">
+        <!-- Notifications -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Notifications</h1>
+                    <!-- Requets Received -->
+                    <h6 class="card-subtitle mb-2 text-muted mt-3">Requests Received</h6>
+                    <ul class="list-group">
+                        {{#each requesters}}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>{{this.username}}</b>
+                            <a href="/dashboard/accept/{{this.id}}" id="accept"><button type="button" class="btn btn-primary btn-sm" data-user-id="{{this.id}}">Accept</button></a>
+                            <a href="/dashboard/deny/{{this.id}}" id="deny"><button type="button" class="btn btn-primary btn-sm">Deny</button></a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                    <!-- Requests Sent -->
+                    <h6 class="card-subtitle mb-2 text-muted mt-3">Requests Sent</h6>
+                    <ul class="list-group">
+                        {{#each requestees}}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>{{this.username}}</b>
+                            <a href="/dashboard/cancel/{{this.id}}" id="cancel"><button type="button" class="btn btn-secondary btn-sm">Cancel</button></a>
+                            </li>
+>>>>>>> origin
                         {{/each}}
                     </ul>
                 </div>
@@ -38,6 +72,7 @@
         </div>
 
         <div class="col-4">
+<<<<<<< HEAD
             <div class="card bg-secondary">
                 <div class="card-body">
                     <h3 class="card-title text-white"><i class="fas fa-user-astronaut mr-3"></i>Friends</h3>
@@ -46,6 +81,16 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <b><i class="fas fa-user-astronaut mr-3"></i> {{this.username}}</b>
                             <a href="/dashboard/unfriend/{{this.id}}" id="unfriend"><button type="button" class="btn btn-outline-primary btn-sm">Unfriend</button></a>
+=======
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Friends</h1>
+                    <ul class="list-group">
+                        {{#each friends}}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>{{this.username}}</b>
+                            <a href="/dashboard/unfriend/{{this.id}}" id="unfriend"><button type="button" class="btn btn-primary btn-sm">Unfriend</button></a>
+>>>>>>> origin
                         </li>
                         {{/each}}
                     </ul>
@@ -54,10 +99,18 @@
         </div>
 
         <div class="col-4">
+<<<<<<< HEAD
             <div class="card bg-primary">
                 <div class="card-body">
                     <h3 class="card-title text-white"><i class="fas fa-search mr-3"></i>Search</h3>
                     <div class="form-group">
+=======
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Search</h1>
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-lg" for="inputLarge">Find Friend</label>
+>>>>>>> origin
                         <input class="form-control form-control-lg" type="text" placeholder="Enter username" id="search-input">
                     </div>
                     <button type="button" class="btn btn-secondary btn-md" id="search">Search</button>
@@ -69,6 +122,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="row mb-5">
         <div class="col-6">
             <div class="card border-primary">
@@ -86,11 +140,28 @@
                     </ul>
                     <a href="/dashboard/create/guide"><button type="button" class="btn btn-primary btn-md mt-3">Create
                             Guides</button></a>
+=======
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Study Guides</h1>
+                    <ul class="list-group">
+                        {{#each guides}}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>{{this.name}}</b>
+                            <a href="/dashboard/delete/guide/{{this.id}}" id="delete-guide"><button type="button" class="btn btn-primary btn-sm">Remove</button></a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <a href="/dashboard/create/guide"><button type="button" class="btn btn-primary btn-md">Create</button></a>
+>>>>>>> origin
                 </div>
             </div>
         </div>
 
         <div class="col-6">
+<<<<<<< HEAD
             <div class="card border-secondary">
                 <div class="card-header">
                     <h3 class="card-title"><i class="fas fa-users mr-3"></i>Study Groups</h3>
@@ -107,6 +178,20 @@
                     </ul>
                     <a href="/dashboard/create/group"><button type="button" class="btn btn-primary btn-md mt-3">Create
                             Groups</button></a>
+=======
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Study Groups</h1>
+                    <ul class="list-group">
+                        {{#each groups}}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <b>{{this.name}}</b>
+                            <a href="/dashboard/delete/group/{{this.id}}" id="delete-group"><button type="button" class="btn btn-primary btn-sm">Remove</button></a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <a href="/dashboard/create/group"><button type="button" class="btn btn-primary btn-md">Create</button></a>
+>>>>>>> origin
                 </div>
             </div>
         </div>
@@ -114,6 +199,7 @@
 
     <div class="row mb-5">
         <div class="col">
+<<<<<<< HEAD
             <div class="card bg-primary">
                 <div class="card-body">
                     <h3 class="card-title text-white"><i class="fas fa-graduation-cap mr-3"></i>Sessions</h3>
@@ -124,12 +210,28 @@
                             <div class="card border-secondary mb-3">
                                 <h3 class="card-header text-center"><i class="fas fa-graduation-cap mr-3"></i>{{this.name}}</h3>
 
+=======
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Sessions</h1>
+                    <div class="row">
+                        
+                        {{#each sessions}}
+                        <div class="col-4">
+                            <div class="card mb-3">
+                                <h5 class="card-header">{{this.name}}</h5>
+                                <div class="card-body">
+                                    <a href="/dashboard/session/{{this.userId}}/{{this.id}}"><button type="button" class="btn btn-secondary">Start</button></a>
+                                    <a href="/dashboard/delete/session/{{this.id}}" id="delete-session"><button type="button" class="btn btn-secondary">Delete</button></a>
+                                </div>
+>>>>>>> origin
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">Study Guide: <span class="badge badge-primary">{{this.guideName}}</span>
                                     </li>
                                     <li class="list-group-item">Group: <span class="badge badge-primary">{{this.groupName}}</span>
                                     </li>
                                 </ul>
+<<<<<<< HEAD
                                 <div class="card-body text-center">
                                     <a href="/dashboard/session/{{this.userId}}/{{this.id}}"><button type="button"
                                             class="btn btn-secondary">Start</button></a>
@@ -143,6 +245,14 @@
                     </div>
                     <a href="/dashboard/create/session"><button type="button" class="btn btn-secondary btn-lg">Create
                             Session</button></a>
+=======
+                            </div>
+                        </div>
+                        {{/each}}
+                        
+                    </div>
+                    <a href="/dashboard/create/session"><button type="button" class="btn btn-primary btn-md">Create</button></a>
+>>>>>>> origin
                 </div>
             </div>
         </div>

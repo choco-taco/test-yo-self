@@ -4,19 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
     <title>Test Yo Self</title>
     <link rel="icon" type="image/x-icon" href="../public/images/fav.ico" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+=======
+    <title>Study group chat app</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css">
+>>>>>>> origin
     {{#if socketData}}
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font: 13px Helvetica, Arial; }
         form { background: #000; padding: 3px; }
+<<<<<<< HEAD
         form input { border: 0; padding: 10px; width: 84%; margin-right: .5%; }
         form button { width: 15%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+=======
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+>>>>>>> origin
         #messages { list-style-type: none; margin: 0; padding: 0; }
         #messages li { padding: 5px 10px; }
     </style>
@@ -48,7 +59,11 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link text-white" href="/users/signin">Sign In <i class="fas fa-sign-in-alt"></i><span class="sr-only">(current)</span></a>
+=======
+                        <a class="nav-link" href="/users/signin">Sign In <span class="sr-only">(current)</span></a>
+>>>>>>> origin
                     </li>
                 </ul>
             </div>
@@ -58,7 +73,11 @@
     {{{body}}}
 
     <div id="footer" style="background-color:#f7f7f9">
+<<<<<<< HEAD
         <div class="container mt-5" style="max-width: 100%">
+=======
+        <div class="container mt-5">
+>>>>>>> origin
             <div class="mt-3">
                 <div class="row">
                     <div class="col-10 mt-3 mb-3">
@@ -82,20 +101,32 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+=======
+>>>>>>> origin
     {{#if socketData}}
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io()
+<<<<<<< HEAD
+=======
+        socket.emit('room', { 
+            room: {{socketData.room}},
+            userId: {{socketData.userId}}
+        });
+
+>>>>>>> origin
         const send = document.getElementById('btn-chat')
         const message = document.getElementById('m')
         const messages = document.getElementById('messages')
 
+<<<<<<< HEAD
         if ({{socketData.isLeader}}) {
             
             const leaderButtons = $('<div>', {
@@ -135,11 +166,18 @@
         send.addEventListener('click', function(e) {
             e.preventDefault()
             socket.emit('chat', {
+=======
+        send.addEventListener('click', function(e) {
+            e.preventDefault()
+            socket.emit('chat', {
+                username: '{{socketData.username}}',
+>>>>>>> origin
                 message: message.value 
             })
             message.value = ''
         })
 
+<<<<<<< HEAD
         $(document.body).on('click', '#next-problem', function() {
             socket.emit('next')
         })
@@ -181,6 +219,19 @@
 
     </script>
     {{/if}}
+=======
+        socket.on('chat', function(data) {
+            messages.innerHTML += '<li><strong>' + data.username + ':</strong> ' + data.message + '</li>'
+        })
+    </script>
+    {{/if}}
+    <script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+>>>>>>> origin
     <script src="/js/index.js"></script>
 </body>
 </html>

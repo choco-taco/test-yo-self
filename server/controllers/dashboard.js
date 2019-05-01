@@ -79,7 +79,11 @@ module.exports = {
         res.render('addGroup', { friends })
     },
     postCreateGroup: async (req, res) => {
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> origin
         const groupName = req.body.name
 
         console.log(groupName)
@@ -96,7 +100,11 @@ module.exports = {
         })
 
         if (foundGroup) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(403).json({ 403: 'Group name already exists' })
+>>>>>>> origin
         }
 
         let addToGroupIds = req.body.friend
@@ -124,7 +132,11 @@ module.exports = {
 
             if (foundFriend.length === 0) {
                 await newGroup.destroy()
+<<<<<<< HEAD
                 return res.render('403')
+=======
+                return res.status(403).json({ 403: 'One of these friends were not found and cannot be added to the group' })
+>>>>>>> origin
             }
 
             groupMembers.push({
@@ -141,7 +153,11 @@ module.exports = {
     getEditGroup: async (req, res) => {
 
     },
+<<<<<<< HEAD
     postEditGroup: async (req, res) => {
+=======
+    postEditGroup: async (req, res)=> {
+>>>>>>> origin
 
     },
     postDeleteGroup: async (req, res) => {
@@ -152,7 +168,11 @@ module.exports = {
         })
 
         if (!foundGroup) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Group not found' })
+>>>>>>> origin
         }
 
         const foundSessions = await Session.findAll({
@@ -164,9 +184,15 @@ module.exports = {
 
         if (foundSessions !== undefined && foundSessions.length !== 0) {
 
+<<<<<<< HEAD
             const sessionIds = foundSessions.map(session => session.id)
 
             await Session.destroy({ where: { id: sessionIds } })
+=======
+            const sessionIds = foundSessions.map(session => session.id )
+
+            await Session.destroy({ where: { id: sessionIds } } )
+>>>>>>> origin
         }
 
         const groupMembers = await Member.findAll({
@@ -176,9 +202,15 @@ module.exports = {
             raw: true
         })
 
+<<<<<<< HEAD
         const ids = groupMembers.map(member => member.id)
 
         await Member.destroy({ where: { id: ids } })
+=======
+        const ids = groupMembers.map(member => member.id ) 
+
+        await Member.destroy({ where: { id: ids } } )
+>>>>>>> origin
         await foundGroup.destroy()
 
         res.status(200).json({ 200: 'Group deleted' })
@@ -212,18 +244,30 @@ module.exports = {
         const areNotEqualLength = questions.length !== answers.length
 
         if (!name || isUndefined || isEmpty || areNotEqualLength) {
+<<<<<<< HEAD
             return res.render('403')
         }
 
         const foundGuide = await Guide.findOne({
             where: {
+=======
+            return res.status(403).json({ 403: 'Something went wrong with the study guide...' })
+        }
+
+        const foundGuide = await Guide.findOne({
+            where: { 
+>>>>>>> origin
                 userId: req.user.id,
                 name
             }
         })
 
         if (foundGuide) {
+<<<<<<< HEAD
             return res.render('403')
+=======
+            return res.status(403).json({ 403: 'Guide name must be unique' })
+>>>>>>> origin
         }
 
         const newGuide = await Guide.create({
@@ -232,7 +276,11 @@ module.exports = {
         })
 
         const problems = []
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> origin
         questions.forEach((question, index) => {
             problems.push({
                 question,
@@ -261,7 +309,11 @@ module.exports = {
         })
 
         if (!foundGuide) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Study guide not found' })
+>>>>>>> origin
         }
 
         const foundSessions = await Session.findAll({
@@ -273,9 +325,15 @@ module.exports = {
 
         if (foundSessions !== undefined && foundSessions.length !== 0) {
 
+<<<<<<< HEAD
             const sessionIds = foundSessions.map(session => session.id)
 
             await Session.destroy({ where: { id: sessionIds } })
+=======
+            const sessionIds = foundSessions.map(session => session.id )
+
+            await Session.destroy({ where: { id: sessionIds } } )
+>>>>>>> origin
         }
 
         const problems = await Problem.findAll({
@@ -285,9 +343,15 @@ module.exports = {
             raw: true
         })
 
+<<<<<<< HEAD
         const problemIds = problems.map(problem => problem.id)
 
         await Problem.destroy({ where: { id: problemIds } })
+=======
+        const problemIds = problems.map(problem => problem.id ) 
+
+        await Problem.destroy({ where: { id: problemIds } } )
+>>>>>>> origin
         await foundGuide.destroy()
 
         res.status(200).json({ 200: 'Study guide deleted' })
@@ -299,12 +363,20 @@ module.exports = {
         const groups = await Group.findAll({
             where: {
                 leaderId: req.user.id
+<<<<<<< HEAD
             },
+=======
+            }, 
+>>>>>>> origin
             raw: true
         })
 
         if (groups === undefined || groups.length === 0) {
+<<<<<<< HEAD
             return res.render('403')
+=======
+            return res.status(403).json({ 403: 'Sessions cannot be made without a study group' })
+>>>>>>> origin
         }
 
         const guides = await Guide.findAll({
@@ -315,7 +387,11 @@ module.exports = {
         })
 
         if (guides === undefined || guides.length === 0) {
+<<<<<<< HEAD
             return res.render('403')
+=======
+            return res.status(403).json({ 403: 'Sessions cannot be made without a study guide' })
+>>>>>>> origin
         }
 
         res.render('addSession', { groups, guides })
@@ -341,7 +417,11 @@ module.exports = {
         })
 
         if (!foundGroup) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Group not found' })
+>>>>>>> origin
         }
 
         const foundGuide = await Guide.findOne({
@@ -352,7 +432,11 @@ module.exports = {
         })
 
         if (!foundGuide) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Guide not found' })
+>>>>>>> origin
         }
 
         const foundSession = await Session.findOne({
@@ -369,11 +453,19 @@ module.exports = {
             return res.redirect('/dashboard/create/session')
         }
 
+<<<<<<< HEAD
         const newSession = await Session.create({
             userId: req.user.id,
             name,
             groupId,
             guideId
+=======
+        const newSession = await Session.create({ 
+            userId: req.user.id, 
+            name, 
+            groupId, 
+            guideId 
+>>>>>>> origin
         })
 
         res.redirect('/dashboard')
@@ -388,7 +480,11 @@ module.exports = {
         })
 
         if (!foundSession) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Session not found' })
+>>>>>>> origin
         }
 
         await foundSession.destroy()
@@ -406,7 +502,11 @@ module.exports = {
         })
 
         if (!foundSession) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Session not found' })
+>>>>>>> origin
         }
 
         const foundGroup = await Group.findOne({
@@ -417,7 +517,11 @@ module.exports = {
         })
 
         if (!foundGroup) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Group not found' })
+>>>>>>> origin
         }
 
         const foundMember = await Member.findOne({
@@ -429,11 +533,19 @@ module.exports = {
         })
 
         if (!foundMember && req.user.id !== foundGroup.leaderId) {
+<<<<<<< HEAD
             return res.render('401')
         }
 
         if (foundSession.active === false && req.user.id !== foundSession.userId) {
             return res.render('401')
+=======
+            return res.status(401).json({ 401: 'Not allowed to access this session' })
+        }
+
+        if (foundSession.active === false && req.user.id !== foundSession.userId) {
+            return res.status(401).json({ 401: 'Session is not active' })
+>>>>>>> origin
         }
 
         const foundGuide = await Guide.findOne({
@@ -444,7 +556,11 @@ module.exports = {
         })
 
         if (!foundGuide) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Guide not found' })
+>>>>>>> origin
         }
 
         const foundProblems = await Problem.findAll({
@@ -454,7 +570,11 @@ module.exports = {
         })
 
         if (foundProblems === undefined || foundProblems.length === 0) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: 'Problems not found' })
+>>>>>>> origin
         }
 
         socketData = {
@@ -468,6 +588,7 @@ module.exports = {
             foundSession.active = true
             await foundSession.save()
 
+<<<<<<< HEAD
             socketData.isLeader = true
 
             return res.render('session', {
@@ -475,6 +596,17 @@ module.exports = {
                 groupName: foundGroup.name,
                 guideName: foundGuide.name,
                 sessionName: foundSession.name,
+=======
+            socketData.leader = req.user.username
+
+            return res.render('session', {
+                leader: req.user.username,
+                username: req.user.username,
+                session: foundSession,
+                group: foundGroup,
+                guide: foundGuide,
+                problems: foundProblems,
+>>>>>>> origin
                 socketData
             })
         }
@@ -489,6 +621,7 @@ module.exports = {
             return res.status(404).json({ 404: 'Leader not found' })
         }
 
+<<<<<<< HEAD
         socketData.isLeader = false
 
         res.render('session', {
@@ -497,6 +630,17 @@ module.exports = {
             groupName: foundGroup.name,
             guideName: foundGuide.name,
             sessionName: foundSession.name,
+=======
+        socketData.leader = foundLeader.username
+
+        res.render('session', {
+            leader: foundLeader.username,
+            username: req.user.username,
+            session: foundSession,
+            group: foundGroup,
+            guide: foundGuide,
+            problems: foundProblems,
+>>>>>>> origin
             socketData
         })
     },
@@ -520,7 +664,11 @@ module.exports = {
 
         res.json({
             id: foundUser.id,
+<<<<<<< HEAD
             username: foundUser.username
+=======
+            username: foundUser.username 
+>>>>>>> origin
         })
     },
     postFriendRequest: async (req, res) => {
@@ -528,7 +676,11 @@ module.exports = {
         const id = req.params.userId
 
         if (id == req.user.id) {
+<<<<<<< HEAD
             return res.render('403')
+=======
+            return res.status(403).json({ 403: `Cannot friend request yourself!` })
+>>>>>>> origin
         }
 
         const foundUser = await User.findOne({
@@ -537,15 +689,25 @@ module.exports = {
 
 
         if (!foundUser) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `User not found` })
+>>>>>>> origin
         }
 
         const isFriend = await req.user.hasFriends([foundUser])
 
         if (isFriend) {
+<<<<<<< HEAD
             return res.render('403')
         }
 
+=======
+            return res.status(403).json({ 403: `User is already your friend` })
+        }
+        
+>>>>>>> origin
         const isRequestee = await req.user.hasRequestees([foundUser])
 
         if (isRequestee) {
@@ -565,10 +727,17 @@ module.exports = {
     },
     postCancelFriendRequest: async (req, res) => {
 
+<<<<<<< HEAD
         const id = req.params.userId
 
         if (id == req.user.id) {
             return res.render('403')
+=======
+        const id  = req.params.userId
+
+        if (id == req.user.id) {
+            return res.status(403).json({ 403: `Cannot cancel friend request yourself!` })
+>>>>>>> origin
         }
 
         const foundUser = await User.findOne({
@@ -576,7 +745,11 @@ module.exports = {
         })
 
         if (!foundUser) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `User not found` })
+>>>>>>> origin
         }
 
         const requestee = await req.user.getRequestees({
@@ -584,7 +757,11 @@ module.exports = {
         })
 
         if (requestee.length === 0) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `Requestee not found` })
+>>>>>>> origin
         }
 
         await req.user.removeRequestee(requestee)
@@ -598,7 +775,11 @@ module.exports = {
         const id = req.params.userId
 
         if (id == req.user.id) {
+<<<<<<< HEAD
             return res.render('403')
+=======
+            return res.status(403).json({ 403: `Cannot accept friend request yourself!` })
+>>>>>>> origin
         }
 
         const foundUser = await User.findOne({
@@ -606,7 +787,11 @@ module.exports = {
         })
 
         if (!foundUser) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `User not found` })
+>>>>>>> origin
         }
 
         const requester = await req.user.getRequesters({
@@ -614,7 +799,11 @@ module.exports = {
         })
 
         if (requester.length === 0) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `Requester not found` })
+>>>>>>> origin
         }
 
         await req.user.addFriends(requester)
@@ -631,7 +820,11 @@ module.exports = {
         const id = req.params
 
         if (id == req.user.id) {
+<<<<<<< HEAD
             return res.render('403')
+=======
+            return res.status(403).json({ 403: `Cannot deny friend request yourself!` })
+>>>>>>> origin
         }
 
         const foundUser = await User.findOne({
@@ -639,7 +832,11 @@ module.exports = {
         })
 
         if (!foundUser) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `User not found` })
+>>>>>>> origin
         }
 
         const requester = await req.user.getRequesters({
@@ -647,7 +844,11 @@ module.exports = {
         })
 
         if (requester.length === 0) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `Requester not found` })
+>>>>>>> origin
         }
 
         await req.user.removeRequester(requester)
@@ -661,7 +862,11 @@ module.exports = {
         const id = req.params.userId
 
         if (id == req.user.id) {
+<<<<<<< HEAD
             return res.render('403')
+=======
+            return res.status(403).json({ 403: `Cannot unfriend yourself!` })
+>>>>>>> origin
         }
 
         const foundUser = await User.findOne({
@@ -669,7 +874,11 @@ module.exports = {
         })
 
         if (!foundUser) {
+<<<<<<< HEAD
             return res.render('404')
+=======
+            return res.status(404).json({ 404: `User not found` })
+>>>>>>> origin
         }
 
         const friend = await req.user.getFriends({
@@ -677,16 +886,26 @@ module.exports = {
         })
 
         if (friend.length === 0) {
+<<<<<<< HEAD
             return res.render('404')
         }
         // Still need to check if friend being deleted is in
         // Any groups this user created
         
+=======
+            return res.status(404).json({ 404: `Friend not found` })
+        }
+
+>>>>>>> origin
         await req.user.removeFriend(friend)
         await friend[0].removeFriend(req.user)
 
         const friends = await req.user.getFriends()
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> origin
         res.status(200).json({ 200: friends })
     }
 }
