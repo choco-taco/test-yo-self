@@ -55,7 +55,7 @@ $(document.body).on('click', '#deny', function(e) {
 
 $(document.body).on('click', '#unfriend', function(e) {
     e.preventDefault()
-    $.post($(this).attr('href'))
+    $.post($(this).attr('href')) //unfriend/:userId
     .then(function(data) {
         location.reload()
     })

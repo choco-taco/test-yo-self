@@ -458,9 +458,8 @@ module.exports = {
         }
 
         socketData = {
-            userId: req.user.id,
-            username: req.user.username,
-            room: foundSession.id,
+            sessionId: foundSession.id,
+            guideId: foundGuide.id,        
         }
 
         if (req.user.id === foundSession.userId) {
@@ -628,7 +627,7 @@ module.exports = {
     },
     postDenyFriendRequest: async (req, res) => {
 
-        const id = req.params
+        const id = req.params.userId
 
         if (id == req.user.id) {
             return res.render('403')
@@ -679,8 +678,6 @@ module.exports = {
         if (friend.length === 0) {
             return res.render('404')
         }
-        // Still need to check if friend being deleted is in
-        // Any groups this user created
         
         await req.user.removeFriend(friend)
         await friend[0].removeFriend(req.user)

@@ -26,7 +26,7 @@ router.route('/create/group')
 router.route('/create/group')
     .post(jwtAuthStrategy, DashboardController.postCreateGroup)
 
-router.route('/delete/group/:groupId')
+router.route('/delete/group/:groupId') // localhost/delete/group/56y5hergrgr
     .post(jwtAuthStrategy, DashboardController.postDeleteGroup)
 
 // Create, edit, and delete study guide
