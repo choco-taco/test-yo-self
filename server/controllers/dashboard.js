@@ -8,6 +8,8 @@ const Problem = models.Problem
 const Guide = models.Guide
 const Session = models.Session
 
+// Crazy unfriend function. Why tho???
+const unfriend = require('../helpers/unfriend')
 
 module.exports = {
     // Dashboard
@@ -57,6 +59,43 @@ module.exports = {
             sessionsArr.push(sessionObj)
         }
 
+        let activeFriendSessions = []
+
+        for (let friend of friends) {
+            const thisFriendsActiveSessions = await Session.findAll({
+                attributes: ['id', 'groupId', 'name'],
+                where: {
+                    userId: friend.id,
+                    active: true
+                },
+                raw: true
+            })
+            for (let session of thisFriendsActiveSessions) {
+                activeFriendSessions.push({
+                    name: session.name,
+                    username: friend.username,
+                    id: session.id,
+                    groupId: session.groupId
+                })
+            }
+        }
+
+        let activeSessions = []
+
+        for (let session of activeFriendSessions) {
+            const memberOfGroupForThisSession = await Member.findOne({
+                attributes: ['id'],
+                where: {
+                    userId: req.user.id,
+                    groupId: session.groupId
+                },
+                raw: true
+            })
+            if (memberOfGroupForThisSession) {
+                activeSessions.push(session)
+            }
+        }
+
         res.render('dashboard', {
             username: req.user.username,
             requestees,
@@ -64,7 +103,8 @@ module.exports = {
             friends,
             guides,
             groups,
-            sessions: sessionsArr
+            sessions: sessionsArr,
+            activeSessions
         })
     },
     // Create, edit, and delete group
@@ -81,8 +121,6 @@ module.exports = {
     postCreateGroup: async (req, res) => {
 
         const groupName = req.body.name
-
-        console.log(groupName)
 
         if (groupName === undefined || groupName === '') {
             return res.redirect('/dashboard/create/group')
@@ -662,6 +700,7 @@ module.exports = {
         if (id == req.user.id) {
             return res.render('403')
         }
+        console.log('aaaaaaaaaaaaaaaaaaaaa')
 
         const foundUser = await User.findOne({
             where: { id }
@@ -670,6 +709,7 @@ module.exports = {
         if (!foundUser) {
             return res.render('404')
         }
+        console.log('bbbbbbbbbbbbbbbbbbbbbbbbb')
 
         const friend = await req.user.getFriends({
             where: { id: foundUser.id }
@@ -678,9 +718,156 @@ module.exports = {
         if (friend.length === 0) {
             return res.render('404')
         }
-        
+
+        const foundFriendMembers = await Member.findAll({
+            attributes: ['id', 'userId', 'groupId'],
+            where: {
+                userId: friend[0].id
+            }
+        })
+        console.log('ccccccccccccccccccccccccccc')
+
+        if (foundFriendMembers.length === 0) {
+            await req.user.removeFriend(friend)
+            await friend[0].removeFriend(req.user)
+
+            // Check their end:
+            await unfriend(friend[0], req.user)
+
+            return res.status(200).json({200: 'Success'})
+        }
+        console.log('a')
+
+        const foundGroups = await Group.findAll({
+            attributes: ['id', 'leaderId'],
+            where: {
+                leaderId: req.user.id
+            }
+        })
+        console.log('dddddddddddddddddddddd')
+
+        if (foundGroups.length === 0) {
+            await req.user.removeFriend(friend)
+            await friend[0].removeFriend(req.user)
+
+            // Check their end
+            await unfriend(friend[0], req.user)
+
+            return res.status(200).json({200: 'Success'})
+        }
+        console.log('eeeeeeeeeeeeeeeee')
+
+        let membersToDelete = []
+        let groupsThisFriendIsAMemberOf = []
+
+        for (let friendMember of foundFriendMembers) {
+            for (let group of foundGroups) {
+                if (friendMember.groupId === group.id) {
+                    groupsThisFriendIsAMemberOf.push(group)
+                    membersToDelete.push(friendMember)
+                }
+            }
+        }
+        console.log('ffffffffffffffffffff')
+
+        if (groupsThisFriendIsAMemberOf.length === 0) {
+            await req.user.removeFriend(friend)
+            await friend[0].removeFriend(req.user)
+
+            // Check their end
+            await unfriend(friend[0], req.user)
+
+            return res.status(200).json({200: 'Success'})
+        }
+        console.log('gggggggggggggggggggggggggg')
+
+        const membersToDeleteIds = membersToDelete.map(member => member.id)
+
+        await Member.destroy({ where: { id: membersToDeleteIds }})
+
+        let groupsToDelete = []
+
+        for (let group of groupsThisFriendIsAMemberOf) {
+            const foundMember = await Member.findOne({
+                where: {
+                    groupId: group.id
+                }
+            })
+            if (!foundMember) {
+                groupsToDelete.push(group)
+            }
+        }
+
+        if (groupsToDelete.length === 0) {
+
+            await req.user.removeFriend(friend)
+            await friend[0].removeFriend(req.user)
+            
+            // Check their end
+            await unfriend(friend[0], req.user)
+
+            return res.status(200).json({200: 'Success'})
+        }
+
+        const groupsToDeleteIds = groupsToDelete.map(group => group.id)
+
+        const foundSessions = await Session.findAll({
+            attributes: ['id', 'userId', 'groupId'],
+            where: {
+                userId: req.user.id
+            }
+        })
+
+        console.log('hhhhhhhhhhhhhhhhhhhhhhhhh')
+
+        if (foundSessions.length === 0) {
+
+            await Group.destroy({ where: { id: groupsToDeleteIds }})
+            await req.user.removeFriend(friend)
+            await friend[0].removeFriend(req.user)
+
+            // Check their end
+            await unfriend(friend[0], req.user)
+
+            return res.status(200).json({200: 'Success'})
+        }
+
+        let sessionsToDelete = []
+
+        for (let session of foundSessions) {
+            for (let group of groupsToDelete) {
+                if (session.groupId === group.id) {
+                    sessionsToDelete.push(session)
+                }
+            }
+        }
+
+        if (sessionsToDelete.length === 0) {
+
+            console.log('iiiiiiiiiiiiiiiiii')
+
+            await Group.destroy({ where: { id: groupsToDeleteIds }})
+            await req.user.removeFriend(friend)
+            await friend[0].removeFriend(req.user)
+
+            // Check their end
+            await unfriend(friend[0], req.user)
+
+            return res.status(200).json({200: 'Success'})
+
+        }
+
+        console.log('jjjjjjjjjjjjjjjjjjjjjjjjj')
+
+        const sessionsToDeleteIds = sessionsToDelete.map(session => session.id)
+
+        await Session.destroy({ where: { id: sessionsToDeleteIds }})
+        await Group.destroy({ where: { id: groupsToDeleteIds }})
         await req.user.removeFriend(friend)
         await friend[0].removeFriend(req.user)
+
+        // Check their end
+        await unfriend(friend[0], req.user)
 
         const friends = await req.user.getFriends()
 

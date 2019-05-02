@@ -11,38 +11,34 @@ module.exports = async function(email, type, token) {
         if (type === 'verify') {
             subject = 'Email verification'
             text = 'Here is your email verification link'
-            html = `<b>Click this to activate your account: </b>
-            <a href='localhost:8080/users/verifyemail/${token}' target="_blank">Link</a>`
+            html = "<div><b>Click this to activate your account: </b><a href='http://localhost:8080/users/verifyemail/" + token + "' target='_blank'>Link</a></div>"
         } else if (type === 'reset') {
             subject = 'Password reset'
             text = 'Here is your password reset link'
-            html = `<b>Click this to reset your password: </b>
-            <a href='localhost:8080/users/forgotpassword/${token}' target="_blank">Link</a>`
+            html = "<div><b>Click this to reset your password: </b><a href='http://localhost:8080/users/forgotpassword/" + token + "' target='_blank'>Link</a></div>"
         }
 
         let transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false,
+            service: 'gmail',
             auth: {
-                user: 'alice29@ethereal.email',
-                pass: 'fJuVpYy7YSQbwpsCts'
+                user: 'testyoselves@gmail.com',
+                pass: 'chocotaco'
             }
-        });
+        })
         
         let info = await transporter.sendMail({
-            from: '"BlogIt" <blogit@gmail.com>',
+            from: '"TestYoSelves" <testyoselves@gmail.com>',
             to: email,
             subject,
             text,
             html
-        });
+        })
     
         console.log("Message sent: %s", info.messageId);    
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+        // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
         
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
 
 }
