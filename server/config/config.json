@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "password",
     "database": "study_app_db",
     "host": "localhost",
     "port": 8889,
@@ -24,3 +24,4 @@
     "dialect": "mysql"
   }
 }
+
