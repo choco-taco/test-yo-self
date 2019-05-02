@@ -1,28 +1,46 @@
-<div class="container">
+<div class="container" style="width:50%">
     <div class="row">
-        <div class="col col-md-10 mx-auto">
-            <h1>Welcome, {{username}}</h1>
+        <div class="col">
+            <h1 class="display-3 mt-3">Hello, {{username}}</h1>
+            <h4>Session Leader: {{leader}}</h4>
+
             <div class="row">
-                <div class="col col-md-7 mx-auto" id="card-container">
-                    <h1>Leader: {{leader}}</h1>
-                    <p><b>Group:</b> {{groupName}}</p>
-                    <p><b>Guide:</b> {{guideName}}</p>
-                    <p><b>Session:</b> {{sessionName}}</p>
-                    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
-                        <div class="card-header">Problem <span id="problem-number"></span></div>
+                <div class="col" id="card-container">
+                    <ul class="list-group mb-3" style="width:50%">
+                        <li class="list-group-item d-flex">
+                            <i class="fas fa-users mr-3"></i>
+                            <span class="badge badge-primary badge-pill">{{groupName}}</span>
+                        </li>
+                        <li class="list-group-item d-flex">
+                            <i class="far fa-file-alt mr-3"></i>
+                            <span class="badge badge-secondary badge-pill">{{guideName}}</span>
+                        </li>
+                        <li class="list-group-item d-flex">
+                            <i class="fas fa-graduation-cap mr-3"></i>
+                            <span class="badge badge-primary badge-pill">{{sessionName}}</span>
+                        </li>
+                    </ul>
+                    <div class="card text-white bg-primary mb-3" id="problem-card">
+                        <div class="card-header">Question <span id="problem-number"></span></div>
                         <div class="card-body">
-                            <h4 class="card-title" id="problem-title"></h4>
-                            <p class="card-text" id="problem-text"></p>
+                            <h4 class="card-title text-center" id="problem-title"></h4>
+                            <h1 class="card-text text-center" id="problem-text"></h1>
                         </div>
                     </div>
                 </div>
-                <div class="col col-md-5 mx-auto">
-                    <ul id="messages" style="height: 500px; overflow-y: auto;"></ul>
-                    <form action="">
-                        <input id="m" autocomplete="off" /><button id="btn-chat">Send</button>
-                    </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <ul id="messages" style="height: 100px; overflow-y: auto;"></ul>
                 </div>
             </div>
+            <form action="">
+                <input class="form-control mb-2 mt-2" id="m" autocomplete="off" /><button class="btn btn-secondary" id="btn-chat">Send</button>
+            </form>
         </div>
     </div>
 </div>

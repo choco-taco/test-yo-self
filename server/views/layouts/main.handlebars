@@ -13,11 +13,11 @@
     {{#if socketData}}
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font: 13px Helvetica, Arial; }
-        form { background: #000; padding: 3px; }
-        form input { border: 0; padding: 10px; width: 84%; margin-right: .5%; }
+        body { font: 19px Helvetica, Arial; }
+        form { background: #fff; padding: 3px; }
+        form input { border: 0; padding: 10px; width: 100%; margin-right: .5%; }
         form button { width: 15%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages { list-style-type: none; margin: 0; padding: 0;}
         #messages li { padding: 5px 10px; }
     </style>
     {{/if}}
@@ -25,7 +25,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#">TYS</a>
+            <a class="navbar-brand" href="/">TYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,6 +50,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/users/signin">Sign In <i class="fas fa-sign-in-alt"></i><span class="sr-only">(current)</span></a>
                     </li>
+                       <a class="nav-link text-white" href="#">Log Out <i class="fas fa-sign-out-alt"></i><span class="sr-only">(current)</span></a>
                 </ul>
             </div>
         </div>
@@ -142,10 +143,12 @@
 
         $(document.body).on('click', '#next-problem', function() {
             socket.emit('next')
+            
         })
 
         $(document.body).on('click', '#show-answer', function() {
             socket.emit('show')
+
         })
 
         $(document.body).on('click', '#previous-problem', function() {
@@ -160,6 +163,7 @@
             $('#problem-number').text(data.index)
             $('#problem-title').text(data.currentTitle)
             $('#problem-text').text(data.currentText)
+            
         })
 
         socket.on('buttonDisplay', function(data) {

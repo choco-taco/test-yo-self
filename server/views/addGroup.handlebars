@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container text-center">
         <h1 class="display-1">Create Your Groups</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <p class="lead">Please create your styudy group name below. Be sure to invite your friends to your study group. Once both steps are completed click "Create Study Group"</p>
     </div>
 </div>
 
@@ -27,7 +27,7 @@
             <div class="card-body">
                 {{#each friends}}
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col col-xs-2">
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="{{this.username}}" name="friend"
@@ -36,8 +36,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-8">
-                        <i class="fas fa-user mr-3"></i> <b>{{this.username}}</b>
+                    <div class="col col-xs-8">
+                        <i class="fas fa-user mr-1"></i> <b>{{this.username}}</b>
                     </div>
                 </div>
                 {{/each}}
