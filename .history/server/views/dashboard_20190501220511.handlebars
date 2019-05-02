@@ -145,22 +145,19 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card bg-secondary">
-                <div class="card-body">
-                    <h3 class="card-title text-white"><i class="fas fa-graduation-cap mr-3"></i>Active Sessions</h3>
-                    {{#each activeSessions}}
-                    <div class="alert alert-dismissible alert-primary">
-                        <h4 class="alert-heading"><strong>Name: </strong>{{this.name}}</h4>
-                        <p class="mb-0 d-inline"><strong>Leader: </strong>{{this.username}}</p>
-                        <a href="/dashboard/session/{{this.username}}/{{this.id}}" class="alert-link"><button type="button"
-                                class="btn btn-primary btn-sm d-inline ml-1">Join</button></a>
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-
     </div>
-
+    <div class="card bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title text-white"><i class="fas fa-graduation-cap mr-3"></i>Sessions</h3>
+        
+            {{#each activeSessions}}
+            <div class="alert alert-dismissible alert-secondary">
+                <h4 class="alert-heading"><strong>Name: </strong>{{this.name}}</h4>
+                <p class="mb-0 d-inline"><strong>Leader: </strong>{{this.username}}</p>
+                <a href="/dashboard/session/{{this.username}}/{{this.id}}" class="alert-link"><button type="button"
+                        class="btn btn-primary btn-sm d-inline ml-1">Join</button></a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
 </div>

@@ -17,9 +17,11 @@
                         {{#each requesters}}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <b><i class="fas fa-question mr-3"></i> {{this.username}}</b>
-                            <a href="/dashboard/accept/{{this.id}}" id="accept"><button type="button" class="btn btn-outline-primary btn-sm"
+                            <a href="/dashboard/accept/{{this.id}}" id="accept"><button type="button"
+                                    class="btn btn-outline-primary btn-sm"
                                     data-user-id="{{this.id}}">Accept</button></a>
-                            <a href="/dashboard/deny/{{this.id}}" id="deny"><button type="button" class="btn btn-outline-secondary btn-sm">Deny</button></a>
+                            <a href="/dashboard/deny/{{this.id}}" id="deny"><button type="button"
+                                    class="btn btn-outline-secondary btn-sm">Deny</button></a>
                         </li>
                         {{/each}}
                     </ul>
@@ -29,7 +31,8 @@
                         {{#each requestees}}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <b><i class="far fa-paper-plane mr-3"></i>{{this.username}}</b>
-                            <a href="/dashboard/cancel/{{this.id}}" id="cancel"><button type="button" class="btn btn-outline-secondary btn-sm">Cancel</button></a>
+                            <a href="/dashboard/cancel/{{this.id}}" id="cancel"><button type="button"
+                                    class="btn btn-outline-secondary btn-sm">Cancel</button></a>
                         </li>
                         {{/each}}
                     </ul>
@@ -45,7 +48,8 @@
                         {{#each friends}}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <b><i class="fas fa-user-astronaut mr-1"></i> {{this.username}}</b>
-                            <a href="/dashboard/unfriend/{{this.id}}" id="unfriend"><button type="button" class="btn btn-outline-primary btn-sm ">Unfriend</button></a>
+                            <a href="/dashboard/unfriend/{{this.id}}" id="unfriend"><button type="button"
+                                    class="btn btn-outline-primary btn-sm ">Unfriend</button></a>
                         </li>
                         {{/each}}
                     </ul>
@@ -58,7 +62,8 @@
                 <div class="card-body">
                     <h3 class="card-title text-white"><i class="fas fa-search mr-3"></i>Search</h3>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" placeholder="Enter username" id="search-input">
+                        <input class="form-control form-control-lg" type="text" placeholder="Enter username"
+                            id="search-input">
                     </div>
                     <button type="button" class="btn btn-secondary btn-md " id="search">Search</button>
                     <ul class="list-group my-3" id="friend-found">
@@ -73,14 +78,15 @@
         <div class="col col-xs-4 mb-3">
             <div class="card border-primary">
                 <div class="card-header">
-                    <h3 class="card-title mt-2"><i class="fas fa-file-alt mr-3"></i>Study Guides</h3>
+                    <h3 class="card-title"><i class="fas fa-file-alt mr-3"></i>Study Guides</h3>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
                         {{#each guides}}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <b><i class="far fa-file-alt mr-3"></i>{{this.name}}</b>
-                            <a href="/dashboard/delete/guide/{{this.id}}" id="delete-guide"><button type="button" class="btn btn-outline-secondary btn-sm">Remove</button></a>
+                            <a href="/dashboard/delete/guide/{{this.id}}" id="delete-guide"><button type="button"
+                                    class="btn btn-outline-secondary btn-sm">Remove</button></a>
                         </li>
                         {{/each}}
                     </ul>
@@ -93,14 +99,16 @@
         <div class="col col-xs-4">
             <div class="card border-secondary">
                 <div class="card-header">
-                    <h3 class="card-title mt-2"><i class="fas fa-users mr-3"></i>Study Groups</h3>
+                    <h3 class="card-title"><i class="fas fa-users mr-3"></i>Study Groups</h3>
                 </div>
                 <div class="card-body">
+
                     <ul class="list-group">
                         {{#each groups}}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <b><i class="fas fa-users mr-3"></i>{{this.name}}</b>
-                            <a href="/dashboard/delete/group/{{this.id}}" id="delete-group"><button type="button" class="btn btn-outline-secondary btn-sm mr-3">Remove</button></a>
+                            <a href="/dashboard/delete/group/{{this.id}}" id="delete-group"><button type="button"
+                                    class="btn btn-outline-secondary btn-sm mr-3">Remove</button></a>
                         </li>
                         {{/each}}
                     </ul>
@@ -121,19 +129,22 @@
                         {{#each sessions}}
                         <div class="col col-xs-4">
                             <div class="card border-secondary mb-3">
-                                <h3 class="card-header text-center"><i class="fas fa-graduation-cap mr-3"></i>{{this.name}}</h3>
+                                <h3 class="card-header text-center"><i
+                                        class="fas fa-graduation-cap mr-3"></i>{{this.name}}</h3>
 
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Study Guide: <span class="badge badge-primary">{{this.guideName}}</span>
+                                    <li class="list-group-item">Study Guide: <span
+                                            class="badge badge-primary">{{this.guideName}}</span>
                                     </li>
-                                    <li class="list-group-item">Group: <span class="badge badge-primary">{{this.groupName}}</span>
+                                    <li class="list-group-item">Group: <span
+                                            class="badge badge-primary">{{this.groupName}}</span>
                                     </li>
                                 </ul>
                                 <div class="card-body text-center">
                                     <a href="/dashboard/session/{{this.userId}}/{{this.id}}"><button type="button"
                                             class="btn btn-secondary">Start</button></a>
-                                    <a href="/dashboard/delete/session/{{this.id}}" id="delete-session"><button type="button"
-                                            class="btn btn-outline-secondary">Delete</button></a>
+                                    <a href="/dashboard/delete/session/{{this.id}}" id="delete-session"><button
+                                            type="button" class="btn btn-outline-secondary">Delete</button></a>
                                 </div>
                             </div>
                         </div>
@@ -145,22 +156,13 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card bg-secondary">
-                <div class="card-body">
-                    <h3 class="card-title text-white"><i class="fas fa-graduation-cap mr-3"></i>Active Sessions</h3>
-                    {{#each activeSessions}}
-                    <div class="alert alert-dismissible alert-primary">
-                        <h4 class="alert-heading"><strong>Name: </strong>{{this.name}}</h4>
-                        <p class="mb-0 d-inline"><strong>Leader: </strong>{{this.username}}</p>
-                        <a href="/dashboard/session/{{this.username}}/{{this.id}}" class="alert-link"><button type="button"
-                                class="btn btn-primary btn-sm d-inline ml-1">Join</button></a>
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-
     </div>
-
+    <h1>Active sessions</h1>
+    {{#each activeSessions}}
+    <div class="alert alert-dismissible alert-secondary">
+        <h4 class="alert-heading"><strong>Name: </strong>{{this.name}}</h4>
+        <p class="mb-0 d-inline"><strong>Leader: </strong>{{this.username}}</p>
+        <a href="/dashboard/session/{{this.username}}/{{this.id}}" class="alert-link"><button type="button" class="btn btn-primary btn-sm d-inline ml-1">Join</button></a>
+    </div>
+    {{/each}}
 </div>
