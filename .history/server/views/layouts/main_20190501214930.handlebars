@@ -104,19 +104,19 @@
             })
             const prevProblemButton = $('<button>', {
                 type: 'button',
-                class: 'btn btn-primary btn-md mx-1 d-none',
+                class: 'btn btn-primary btn-sm mx-1 d-none',
                 id: 'previous-problem',
-                text: 'Previous Problem'
+                text: 'Previous problem'
             })
             const showAnswerButton = $('<button>', {
                 type: 'button',
-                class: 'btn btn-secondary btn-md mx-1',
+                class: 'btn btn-primary btn-sm mx-1',
                 id: 'show-answer',
                 text: 'Show answer'
             })
             const nextProblemButton = $('<button>', {
                     type: 'button',
-                    class: 'btn btn-primary btn-md mx-1 d-none',
+                    class: 'btn btn-primary btn-sm mx-1 d-none',
                     id: 'next-problem',
                     text: 'Next problem'
             })
@@ -168,7 +168,7 @@
 
         socket.on('buttonDisplay', function(data) {
             if (data.isFirst) {
-                $('#previous-problem').addClass('d-none')
+                $('#previous-problem').addClass('d-none', 'bg-secondary')
             } else {
                 $('#previous-problem').removeClass('d-none')
             }
