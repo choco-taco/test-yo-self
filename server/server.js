@@ -2,15 +2,19 @@ const app = require('./app')
 const db = require('./models')
 const socket = require('socket.io')
 
+<<<<<<< HEAD
 const Session = db.Session
 const Problem = db.Problem
 
+=======
+>>>>>>> origin
 db.sequelize.sync().then(() => {
     
     const PORT = process.env.PORT || 8080
     const server = app.listen(PORT, console.log(`Server started on port ${PORT}...`))
     const io = socket(server)
 
+<<<<<<< HEAD
     let roomInfo = {}
 
     io.on('connection', socket => {
@@ -168,6 +172,25 @@ db.sequelize.sync().then(() => {
 
             }
             console.log(`User ${socket.userId} disconnected from room ${socket.room}`)
+=======
+    io.on('connection', socket => {
+
+        socket.on('room', data => {
+            socket.join(data.room)
+            socket.room = data.room
+            socket.userId = data.userId
+        })
+
+        socket.on('chat', data => {
+            io.to(socket.room).emit('chat', data)
+        })
+
+        socket.on('disconnect', () => {
+            // If user that disconnected is session leader
+            // Change session active = false
+            console.log(`User ${socket.userId} disconnected from room ${socket.room}`)
+            socket.room = undefined
+>>>>>>> origin
         })
 
     })
