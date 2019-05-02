@@ -3,12 +3,12 @@
     <!-- *********************************** -->
     <!-- ============ DASHBOARD ============ -->
     <!-- *********************************** -->
-    <h1 class="display-4 text-center mb-5 mt-5">Welcome, {{username}}.</h1>
+    <h1 class="display-1 text-center mb-5 mt-5">Welcome, {{username}}.</h1>
 
     <div class="row mb-5">
         <!-- Notifications -->
-        <div class="col col-xs-4">
-            <div class="card bg-primary mb-3">
+        <div class="col-4">
+            <div class="card bg-primary">
                 <div class="card-body">
                     <h3 class="card-title text-white"><i class="far fa-bell mr-3"></i>Notifications</h3>
                     <!-- Requests Received -->
@@ -40,16 +40,16 @@
             </div>
         </div>
 
-        <div class="col col-xs-4">
-            <div class="card bg-secondary mb-3">
+        <div class="col-4">
+            <div class="card bg-secondary">
                 <div class="card-body">
                     <h3 class="card-title text-white"><i class="fas fa-user-astronaut mr-3"></i>Friends</h3>
                     <ul class="list-group">
                         {{#each friends}}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <b><i class="fas fa-user-astronaut mr-1"></i> {{this.username}}</b>
+                            <b><i class="fas fa-user-astronaut mr-3"></i> {{this.username}}</b>
                             <a href="/dashboard/unfriend/{{this.id}}" id="unfriend"><button type="button"
-                                    class="btn btn-outline-primary btn-sm ">Unfriend</button></a>
+                                    class="btn btn-outline-primary btn-sm">Unfriend</button></a>
                         </li>
                         {{/each}}
                     </ul>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <div class="col col-xs-4">
+        <div class="col-4">
             <div class="card bg-primary">
                 <div class="card-body">
                     <h3 class="card-title text-white"><i class="fas fa-search mr-3"></i>Search</h3>
@@ -65,7 +65,7 @@
                         <input class="form-control form-control-lg" type="text" placeholder="Enter username"
                             id="search-input">
                     </div>
-                    <button type="button" class="btn btn-secondary btn-md " id="search">Search</button>
+                    <button type="button" class="btn btn-secondary btn-md" id="search">Search</button>
                     <ul class="list-group my-3" id="friend-found">
                         {{!-- Friend will appear here if found --}}
                     </ul>
@@ -75,7 +75,7 @@
     </div>
 
     <div class="row mb-5">
-        <div class="col col-xs-4 mb-3">
+        <div class="col-6">
             <div class="card border-primary">
                 <div class="card-header">
                     <h3 class="card-title"><i class="fas fa-file-alt mr-3"></i>Study Guides</h3>
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <div class="col col-xs-4">
+        <div class="col-6">
             <div class="card border-secondary">
                 <div class="card-header">
                     <h3 class="card-title"><i class="fas fa-users mr-3"></i>Study Groups</h3>
@@ -108,7 +108,7 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <b><i class="fas fa-users mr-3"></i>{{this.name}}</b>
                             <a href="/dashboard/delete/group/{{this.id}}" id="delete-group"><button type="button"
-                                    class="btn btn-outline-secondary btn-sm mr-3">Remove</button></a>
+                                    class="btn btn-outline-secondary btn-sm">Remove</button></a>
                         </li>
                         {{/each}}
                     </ul>

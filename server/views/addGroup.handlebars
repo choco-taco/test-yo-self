@@ -22,7 +22,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
         <div class="card border-secondary mb-3" style="max-width: 100%;">
             <div class="card-header">Your Friends</div>
             <div class="card-body">
@@ -48,23 +47,4 @@
 
         <button type="submit" class="btn btn-secondary btn-lg btn-block">Create Study Group</button>
     </form>
-=======
-        {{#each friends}}
-        <div class="row">
-            <div class="col-2">
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="{{this.username}}" name="friend" value="{{this.id}}">
-                        <label class="custom-control-label" for="{{this.username}}" name="friend">Invite</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-8">
-                <b>{{this.username}}</b>
-            </div>
-        </div>
-        {{/each}}
-        <button type="submit" class="btn btn-secondary btn-lg btn-block">Create Study Group</button>
-    </form>    
->>>>>>> origin
 </div>
