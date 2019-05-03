@@ -21,7 +21,7 @@ module.exports = {
         const foundUser = await User.findOne({
             where: {
                 [Op.or]: [
-                    { username: username.toLowerCase() }, 
+                    { username: username.toLowerCase() },
                     { email: email.toLowerCase() }
                 ]
             }
@@ -38,7 +38,7 @@ module.exports = {
         }
 
         const newUser = await User.create({ username, email, password })
-        const newToken = await Token.create({ 
+        const newToken = await Token.create({
             type: 'verify',
             token: await genToken(),
             userId: newUser.id
@@ -52,27 +52,27 @@ module.exports = {
     },
     // Email verification controller
     verifyEmailLink: async (req, res) => {
-        const foundToken = await Token.findOne({ 
+        const foundToken = await Token.findOne({
             where: {
                 [Op.and]: [
                     { type: 'verify' },
                     { token: req.params.token }
                 ]
             }
-         })
+        })
 
         if (!foundToken) {
-            return res.status(404).json({ 404: 'Page not found' })
+            return res.render('404')
         }
 
-        const foundUser = await User.findOne({ 
+        const foundUser = await User.findOne({
             where: {
                 id: foundToken.userId
             }
-         })
+        })
 
         if (!foundUser) {
-            return res.status(404).json({ 404: 'Page not found' })
+            return res.render('404')
         }
 
         foundUser.active = true
@@ -92,12 +92,12 @@ module.exports = {
 
         if (!req.user.active) {
 
-            const foundToken = await Token.findOne({ 
+            const foundToken = await Token.findOne({
                 where: {
                     userId: req.user.id
                 }
-             });
-            
+            });
+
             if (foundToken) {
                 errors.push({ message: 'Email has not yet been verified' })
                 return res.render('signin', { errors })
@@ -115,7 +115,7 @@ module.exports = {
                 message: 'Verification email link has been resent!'
             })
         }
-        
+
         const jwtToken = signToken(req.user)
         res.cookie('jwt', jwtToken)
 
@@ -192,11 +192,11 @@ module.exports = {
             return res.status(404)
         }
 
-        const foundUser = await User.findOne({ 
+        const foundUser = await User.findOne({
             where: {
                 id: foundToken.userId
             }
-         })
+        })
 
         if (!foundUser) {
             return res.status(404)
@@ -211,5 +211,7 @@ module.exports = {
 
         res.redirect('/users/signin', { success: 'Password has been reset' })
 
+        return {
+            message: "Everything is good!"
+        }
     }
-}
